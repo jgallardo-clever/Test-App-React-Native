@@ -16,6 +16,17 @@ class User(BaseModel):
 # Creación de la aplicación FastAPI
 app = FastAPI()
 
+# Habilitar CORS para permitir solicitudes desde otros dominios
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permitir solicitudes desde cualquier origen
+    allow_credentials=True,
+    allow_methods=["*"],  # Permitir cualquier método HTTP
+    allow_headers=["*"],  # Permitir cualquier encabezado
+)
+
 # Lista de usuarios de ejemplo
 users = [
     User(id=1, name="Alice", email="alice@example.com"),
