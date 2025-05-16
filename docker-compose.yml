@@ -1,0 +1,10 @@
+# Manifiesto de Docker Compose para la aplicación backend
+version: '3.8'
+services:
+  backend:
+    image: backend-test-react-native:latest
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
