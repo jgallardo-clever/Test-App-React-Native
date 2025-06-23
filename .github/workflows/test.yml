@@ -1,0 +1,54 @@
+name: Workflow Test
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build phase
+        run: |
+          echo "Building the project..."
+          # Add your build commands here
+          echo "Build completed successfully."
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Test phase
+        run: |
+          echo "Running tests..."
+          # Add your test commands here
+          echo "Tests completed successfully."
+
+  parallel-job1:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 1
+        run: |
+          echo "Running parallel job 1..."
+          # Add your commands for parallel job 1 here
+          echo "Parallel job 1 completed successfully."
+  parallel-job2:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 2
+        run: |
+          echo "Running parallel job 2..."
+          # Add your commands for parallel job 2 here
+          echo "Parallel job 2 completed successfully."
