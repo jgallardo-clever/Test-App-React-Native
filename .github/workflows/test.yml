@@ -13,6 +13,8 @@ jobs:
         run: |
           echo "Building the project..."
           # Add your build commands here
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Build completed successfully."
 
   test:
@@ -26,6 +28,8 @@ jobs:
         run: |
           echo "Running tests..."
           # Add your test commands here
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Tests completed successfully."
 
   parallel-job1:
@@ -40,6 +44,8 @@ jobs:
           echo "Running parallel job 1..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 1 completed successfully."
   parallel-job2:
     runs-on: ubuntu-latest
@@ -53,6 +59,8 @@ jobs:
           echo "Running parallel job 2..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 2 completed successfully."
 
   parallel-job3:
@@ -67,6 +75,8 @@ jobs:
           echo "Running parallel job 3..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 3 completed successfully."
 
   parallel-job4:
@@ -81,6 +91,8 @@ jobs:
           echo "Running parallel job 4..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 4 completed successfully."
 
   parallel-job5:
@@ -95,6 +107,8 @@ jobs:
           echo "Running parallel job 5..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 5 completed successfully."
   
   parallel-job6:
@@ -109,6 +123,8 @@ jobs:
           echo "Running parallel job 6..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 6 completed successfully."
 
   parallel-job7:
@@ -123,6 +139,8 @@ jobs:
           echo "Running parallel job 7..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 7 completed successfully."
   
   parallel-job8:
@@ -137,6 +155,8 @@ jobs:
           echo "Running parallel job 8..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 8 completed successfully."
 
   parallel-job9:
@@ -151,6 +171,8 @@ jobs:
           echo "Running parallel job 9..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 9 completed successfully."
   parallel-job10:
     runs-on: ubuntu-latest
@@ -164,6 +186,8 @@ jobs:
           echo "Running parallel job 10..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 10 completed successfully."
 
   parallel-job11:
@@ -178,8 +202,10 @@ jobs:
           echo "Running parallel job 11..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 11 completed successfully."
-          
+
   parallel-job12:
     runs-on: ubuntu-latest
     needs: test
@@ -192,4 +218,6 @@ jobs:
           echo "Running parallel job 12..."
           # Esperar 10 segundos para simular un trabajo paralelo
           sleep 10
+          # Imprimir el nombre del runner
+          echo "Runner: $RUNNER_NAME"
           echo "Parallel job 12 completed successfully."
