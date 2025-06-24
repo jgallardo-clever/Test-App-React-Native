@@ -38,7 +38,8 @@ jobs:
       - name: Parallel Job 1
         run: |
           echo "Running parallel job 1..."
-          # Add your commands for parallel job 1 here
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
           echo "Parallel job 1 completed successfully."
   parallel-job2:
     runs-on: ubuntu-latest
@@ -50,5 +51,145 @@ jobs:
       - name: Parallel Job 2
         run: |
           echo "Running parallel job 2..."
-          # Add your commands for parallel job 2 here
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
           echo "Parallel job 2 completed successfully."
+
+  parallel-job3:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 3
+        run: |
+          echo "Running parallel job 3..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 3 completed successfully."
+
+  parallel-job4:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 4
+        run: |
+          echo "Running parallel job 4..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 4 completed successfully."
+
+  parallel-job5:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 5
+        run: |
+          echo "Running parallel job 5..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 5 completed successfully."
+  
+  parallel-job6:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 6
+        run: |
+          echo "Running parallel job 6..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 6 completed successfully."
+
+  parallel-job7:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 7
+        run: |
+          echo "Running parallel job 7..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 7 completed successfully."
+  
+  parallel-job8:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 8
+        run: |
+          echo "Running parallel job 8..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 8 completed successfully."
+
+  parallel-job9:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 9
+        run: |
+          echo "Running parallel job 9..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 9 completed successfully."
+  parallel-job10:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 10
+        run: |
+          echo "Running parallel job 10..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 10 completed successfully."
+
+  parallel-job11:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 11
+        run: |
+          echo "Running parallel job 11..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 11 completed successfully."
+          
+  parallel-job12:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Parallel Job 12
+        run: |
+          echo "Running parallel job 12..."
+          # Esperar 10 segundos para simular un trabajo paralelo
+          sleep 10
+          echo "Parallel job 12 completed successfully."
