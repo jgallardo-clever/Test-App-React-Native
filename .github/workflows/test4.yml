@@ -31,7 +31,7 @@ jobs:
           # Imprimir el nombre del runner
           echo "Runner: $RUNNER_NAME"
           echo "Tests completed successfully."
-          ping https://google.com
+          ping google.com
           echo "Ping to Google completed successfully."
 
   parallel-job1:
