@@ -1,0 +1,45 @@
+# Test que realiza un análisis de SonarQube en el código fuente del repositorio.
+name: SonarQube Analysis
+on:
+  workflow_dispatch:
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Send ngrok-skip-browser-warning request header to remove warning
+        run: |
+          echo "Sending ngrok-skip-browser-warning request header to remove warning"
+          curl -H "ngrok-skip-browser-warning: true" ${secrets.NGROK_URL}
+
+      - name: Run SonarQube analysis
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          # Crear archivo de configuración de SonarQube
+          cat > sonar-project.properties << EOF
+          sonar.projectKey=test-app-react-native
+          sonar.projectName=Test App React Native
+          sonar.projectVersion=1.0
+          sonar.sources=test.js
+          sonar.host.url=${{ secrets.SONAR_HOST_URL }}
+          sonar.login=${{ secrets.SONAR_TOKEN }}
+          sonar.sourceEncoding=UTF-8
+          sonar.javascript.lcov.reportPaths=coverage/lcov.info
+          EOF
+          
+          # Ejecutar análisis con SonarQube Scanner
+          docker run --rm \
+            -e SONAR_HOST_URL="${{ secrets.SONAR_HOST_URL }}" \
+            -e SONAR_LOGIN="${{ secrets.SONAR_TOKEN }}" \
+            -v "$PWD:/usr/src" \
+            sonarsource/sonar-scanner-cli:latest \
+            -Dsonar.projectKey=test-app-react-native \
+            -Dsonar.sources=test.js \
+            -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
+            -Dsonar.login="${{ secrets.SONAR_TOKEN }}"
+          
