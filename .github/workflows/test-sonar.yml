@@ -5,15 +5,10 @@ on:
 
 jobs:
   sonar:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Send ngrok-skip-browser-warning request header to remove warning
-        run: |
-          echo "Sending ngrok-skip-browser-warning request header to remove warning"
-          curl -H "ngrok-skip-browser-warning: true" ${secrets.NGROK_URL}
 
       - name: Run SonarQube analysis
         env:
