@@ -5,55 +5,12 @@ on:
 
 jobs:
   sonar:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Run SonarQube analysis
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: SonarSource/sonarqube-scan-action@v5
         env:
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          echo "🔍 Iniciando análisis de SonarQube..."
-          echo "📁 Directorio actual: $(pwd)"
-          echo "📄 Archivos disponibles:"
-          ls -la
-          
-          # Verificar que el archivo test.js existe
-          if [ ! -f "test.js" ]; then
-            echo "❌ Error: El archivo test.js no se encontró"
-            exit 1
-          fi
-          
-          echo "✅ Archivo test.js encontrado"
-          
-          # Crear archivo de configuración de SonarQube
-          echo "📝 Creando archivo de configuración sonar-project.properties..."
-          cat > sonar-project.properties << EOF
-          sonar.projectKey=test-app-react-native
-          sonar.projectName=Test App React Native
-          sonar.projectVersion=1.0
-          sonar.sources=test.js
-          sonar.host.url=${{ secrets.SONAR_HOST_URL }}
-          sonar.login=${{ secrets.SONAR_TOKEN }}
-          sonar.sourceEncoding=UTF-8
-          EOF
-          
-          echo "📋 Contenido del archivo de configuración:"
-          cat sonar-project.properties
-          
-          echo "🚀 Ejecutando análisis con SonarQube Scanner..."
-          
-          # Ejecutar análisis con SonarQube Scanner
-          docker run --rm \
-            -e SONAR_HOST_URL="${{ secrets.SONAR_HOST_URL }}" \
-            -e SONAR_LOGIN="${{ secrets.SONAR_TOKEN }}" \
-            -v "$PWD:/usr/src" \
-            sonarsource/sonar-scanner-cli:latest \
-            -Dsonar.projectKey=test-app-react-native \
-            -Dsonar.sources=test.js \
-            -Dsonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
-            -Dsonar.login="${{ secrets.SONAR_TOKEN }}" \
-            -X
-          
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
